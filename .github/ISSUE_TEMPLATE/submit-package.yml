@@ -1,0 +1,64 @@
+name: Submit a package
+description: Propose a pack, rules plugin, or sheet for the registry
+title: "Submit: <package id>"
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The registry only links to downloads that you host. It never stores your files.
+        Every package needs an open license. See the README for the rules.
+  - type: input
+    id: package_id
+    attributes:
+      label: Package id
+      description: Lowercase letters, digits, and dashes.
+      placeholder: my-homebrew-pack
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      description: Integration plugins are first-party only for now.
+      options:
+        - pack
+        - rules-plugin
+        - sheet
+    validations:
+      required: true
+  - type: input
+    id: repository
+    attributes:
+      label: Source repository URL
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: License (SPDX id)
+      placeholder: CC-BY-4.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
+  - type: textarea
+    id: download
+    attributes:
+      label: Download URL, sha256, and size in bytes of the first version
+      description: Or open a pull request with a manifest instead (see examples/example-pack).
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have the right to distribute this content under the stated license.
+          required: true
+        - label: It contains no content from publishers that is not openly licensed.
+          required: true

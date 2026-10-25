@@ -1,0 +1,24 @@
+{
+  "id": "example-pack",
+  "kind": "pack",
+  "title": "Example Pack",
+  "description": "A filled-in example manifest. The hash, size, and URLs are placeholders.",
+  "author": "Example Author",
+  "license": "CC-BY-4.0",
+  "homepage": "https://example.com/example-pack",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sizeBytes": 1024,
+      "appVersion": ">=0.1 <0.2",
+      "dependencies": ["srd-5e >= 1.0"],
+      "sources": [
+        {
+          "kind": "https",
+          "url": "https://example.com/downloads/example-pack_1.0.0.zip"
+        }
+      ]
+    }
+  ]
+}

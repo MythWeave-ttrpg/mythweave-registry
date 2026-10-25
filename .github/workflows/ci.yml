@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Skeleton check. Schema validation, the URL checker, and index generation
+      # arrive with the shared MythWeave tooling (see scripts/README.md).
+      - name: JSON files parse
+        run: |
+          find manifests schemas examples -name '*.json' -print0 | xargs -0 -r -n1 jq empty
+          echo "All JSON files parse."
